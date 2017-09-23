@@ -28,25 +28,25 @@ if ($compiled) {
 *Nette framework:*
 ```PHP
 
-	use GoogleClosureCompiler\Compiler;
+use GoogleClosureCompiler\Compiler;
 
-	/**
-	 * @var Compiler
-	 */
-	private $compiler;
+/**
+ * @var Compiler
+ */
+private $compiler;
 
-	
-	public function __construct(Compiler $compiler) 
-	{
-        $this->compiler = $compiler;
-	}
-	
 
-	public function renderDefault() 
-	{
-        $code = file_get_contents('/path/to/script.js');
-        $this->template->jsCode = $this->compiler->setJsCode($code)->compiler();
-	}
+public function __construct(Compiler $compiler) 
+{
+$this->compiler = $compiler;
+}
+
+
+public function renderDefault() 
+{
+$code = file_get_contents('/path/to/script.js');
+$this->template->jsCode = $this->compiler->setJsCode($code)->compiler();
+}
 ```
 
 And in the config neon
