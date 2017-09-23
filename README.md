@@ -45,7 +45,7 @@ public function __construct(Compiler $compiler)
 public function renderDefault() 
 {
     $code = file_get_contents('/path/to/script.js');
-    $this->template->jsCode = $this->compiler->setJsCode($code)->compiler();
+    $this->template->jsCode = $this->compiler->setJsCode($code)->compile();
 }
 ```
 
