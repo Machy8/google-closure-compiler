@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/Machy8/google-closure-compiler/badge.svg?branch=master)](https://coveralls.io/github/Machy8/google-closure-compiler?branch=master)
 [![License](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://github.com/Machy8/google-closure-compiler/blob/master/license.md)
 
+⚡ PHP client for the [Google Closure Compiler](https://closure-compiler.appspot.com/home) API in one file.
+
 ## Requirements
 - PHP 7.0+
 - If you use Nette Framework - v2.3+
