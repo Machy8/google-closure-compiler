@@ -1,0 +1,6 @@
+vendor/
+.idea/
+index.php
+input.js
+output.js
+composer.lock
