@@ -1,6 +1,6 @@
 {
     "name": "machy8/google-closure-compiler",
-    "description": "PHP client for the Google Closure Compiler API in one file.",
+    "description": "⚡ PHP client for the Google Closure Compiler API in one file.",
     "keywords": ["javascript", "minification", "compress", "google", "api",  "php", "closure"],
     "license": "New BSD License",
     "require": {
