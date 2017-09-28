@@ -88,6 +88,75 @@ $response
 	: throwConnectionError();
 
 
+Assert::exception(
+	function () {
+		getCompiler()->compile();
+	},
+	\GoogleClosureCompiler\CompileException::class,
+	'Missing required "js_code" or "code_url" parameter. Set it by setJsCode or setCodeUrl method.'
+);
+
+
+Assert::exception(
+	function () {
+		getCompiler()
+			->setJsCode("alert('Hello world!');")
+			->setCompilationLevel('abc')
+			->compile();
+	},
+	\GoogleClosureCompiler\SetupException::class,
+	'Unknown compilation level "abc".'
+);
+
+
+Assert::exception(
+ 	function () {
+		getCompiler()
+			->setJsCode("alert('Hello world!');")
+			->setFormattingType('abc')
+			->compile();
+	},
+	\GoogleClosureCompiler\SetupException::class,
+	'Unknown formatting type "abc".'
+);
+
+
+Assert::exception(
+	function () {
+		getCompiler()
+			->setJsCode("alert('Hello world!');")
+			->setLanguage('abc')
+			->compile();
+	},
+	\GoogleClosureCompiler\SetupException::class,
+	'Unknown code language "abc".'
+);
+
+
+Assert::exception(
+	function () {
+		getCompiler()
+			->setJsCode("alert('Hello world!');")
+			->setLanguageOut('abc')
+			->compile();
+	},
+	\GoogleClosureCompiler\SetupException::class,
+	'Unknown language type "abc" for language out option.'
+);
+
+
+Assert::exception(
+	function () {
+		getCompiler()
+			->setJsCode("alert('Hello world!');")
+			->setWarningLevel('abc')
+			->compile();
+	},
+	\GoogleClosureCompiler\SetupException::class,
+	'Unknown warning level "abc".'
+);
+
+
 //------------------------------------------------ HELPERS ------------------------------------------------
 function getCompiler(): Compiler
 {

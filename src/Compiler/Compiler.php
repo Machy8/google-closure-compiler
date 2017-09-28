@@ -181,7 +181,7 @@ class Compiler
 	public function setCompilationLevel(string $level): Compiler
 	{
 		if ( ! in_array($level, self::ALLOWED_COMPILATION_LEVEL_OPTIONS)) {
-			throw new SetupException('Unknown compilation level "' . $level . '"');
+			throw new SetupException('Unknown compilation level "' . $level . '".');
 		}
 
 		$this->addHttpQueryParameter('compilation_level', $level);
@@ -199,7 +199,7 @@ class Compiler
 	public function setFormattingType(string $type): Compiler
 	{
 		if ( ! in_array($type, self::ALLOWED_FORMATTING_OPTIONS)) {
-			throw new SetupException('Unknown formatting type . "' . $type . '"');
+			throw new SetupException('Unknown formatting type "' . $type . '".');
 		}
 
 		$this->addHttpQueryParameter('formatting', $type);
@@ -224,7 +224,7 @@ class Compiler
 	public function setLanguage(string $language): Compiler
 	{
 		if ( ! in_array($language, self::ALLOWED_LANGUAGE_OPTIONS)) {
-			throw new SetupException('Unknown language type . "' . $language . '".');
+			throw new SetupException('Unknown language type "' . $language . '".');
 		}
 
 		$this->addHttpQueryParameter('language', $language);
@@ -235,7 +235,7 @@ class Compiler
 	public function setLanguageOut(string $language): Compiler
 	{
 		if ( ! in_array($language, self::ALLOWED_LANGUAGE_OUT_OPTIONS)) {
-			throw new SetupException('Unknown language out type . "' . $language . '".');
+			throw new SetupException('Unknown language type "' . $language . '" for language out option.');
 		}
 
 		$this->addHttpQueryParameter('language_out', $language);
@@ -253,7 +253,7 @@ class Compiler
 	public function setWarningLevel(string $level): Compiler
 	{
 		if ( ! in_array($level, self::ALLOWED_WARNING_LEVEL_OPTIONS)) {
-			throw new SetupException('Unknown formatting type . "' . $level . '"');
+			throw new SetupException('Unknown warning level "' . $level . '".');
 		}
 
 		$this->addHttpQueryParameter('warning_level', $level);
