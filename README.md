@@ -69,14 +69,14 @@ Direct and main information can be found on [https://developers.google.com/closu
 Returns [GoogleClosureCompiler\Response](https://github.com/Machy8/google-closure-compiler/blob/master/src/Compiler/Response.php) if connection was successful otherwise returns NULL.
 
 |         Method        |        Parameters        |      Constants      |
-|:---------------------:|:------------------------:|:-------------------:|
+|-----------------------|--------------------------|---------------------|
 | compile               |                          |                     |
 | enableClosureCompiler |                          |                     |
 | enableStatistics      |                          |                     |
 | excludeDefaultExterns |                          |                     |
-| setCodeUrl            | string | string [] $url  |                     |
+| setCodeUrl            | string \| string [] $url |                     |
 | setCompilationLevel   | string $level            | COMPILATION_LEVEL_* |
-| setExternsUrl         | string | string[] $value |                     |
+| setExternsUrl         | string \| string[] $value|                     |
 | setFormattingType     | string $type             | FORMATTING_*        |
 | setJsCode             | string $code             |                     |
 | setJsExterns          | string $jsCode           |                     |
@@ -86,10 +86,10 @@ Returns [GoogleClosureCompiler\Response](https://github.com/Machy8/google-closur
 | setWarningLevel       | string $level            | WARNING_LEVEL_*     |
 
 ### Response
-Is parsed json from previous request
+Is parsed json from response of previous request.
 
 |          Method         |                      Returns                      |
-|:-----------------------:|:-------------------------------------------------:|
+|-------------------------|---------------------------------------------------|
 | getCompiledCode         | string - compiled code                            |
 | getErrors               | array - errors                                    |
 | getOutputFilePath       | string - url path to file                         |
