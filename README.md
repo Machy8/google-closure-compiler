@@ -100,4 +100,4 @@ Is parsed json from previous request
 | hasErrors               | bool - if code to compile contain errors          |
 | hasServerErrors         | bool - if response contains server errors         |
 | hasWarnings             | bool - if warnings about compiled code exists     |
-| responseIsWithoutErrors | bool - combination of hasServerErrors & hasErrors |
+| isWithoutErrors         | bool - combination of hasServerErrors & hasErrors |

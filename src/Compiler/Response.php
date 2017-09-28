@@ -88,4 +88,10 @@ class Response
 		return (bool) $this->getWarnings();
 	}
 
+
+	public function isWithoutErrors(): bool
+	{
+		return ! (bool) $this->getErrors() && ! $this->getServerErrors();
+	}
+
 }

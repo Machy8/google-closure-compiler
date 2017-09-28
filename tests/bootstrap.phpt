@@ -79,6 +79,15 @@ $response
 	: throwConnectionError();
 
 
+$response = getCompiler()
+	->setJsCode("alert('Hello world!');")
+	->enableStatistics()
+	->compile();
+$response
+	? Assert::true((bool) $response->isWithoutErrors())
+	: throwConnectionError();
+
+
 //------------------------------------------------ HELPERS ------------------------------------------------
 function getCompiler(): Compiler
 {
