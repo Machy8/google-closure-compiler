@@ -43,7 +43,7 @@ $response = getCompiler()
 	->compile();
 $response
 	? Assert::true( (bool) $response->getOutputFilePath())
-	: Assert::fail('Failed to connect to closure compiler');
+	: throwConnectionError();
 
 
 $response = getCompiler()
@@ -51,7 +51,7 @@ $response = getCompiler()
 	->compile();
 $response
 	? Assert::true( (bool) $response->hasErrors())
-	: Assert::fail('Failed to connect to closure compiler');
+	: throwConnectionError();
 
 
 $response = getCompiler()
@@ -59,17 +59,30 @@ $response = getCompiler()
 	->compile();
 $response
 	? Assert::true( (bool) $response->hasWarnings())
-	: Assert::fail('Failed to connect to closure compiler');
+	: throwConnectionError();
 
+
+$response = getCompiler()
+	->setJsCode("alert('Hello world!');")
+	->compile();
+$response
+	? Assert::equal('alert("Hello world!");', $response->getResponse()->compiledCode)
+	: throwConnectionError();
+
+
+$response = getCompiler()
+	->setJsCode("alert('Hello world!');")
+	->enableStatistics()
+	->compile();
+$response
+	? Assert::true((bool) $response->getStatistics())
+	: throwConnectionError();
 
 
 //------------------------------------------------ HELPERS ------------------------------------------------
-function matchJsFile(string $name, Compiler $compiler)
+function getCompiler(): Compiler
 {
-	$result = $compiler->compile();
-	$result
-		? Assert::matchFile('expected/' . $name .'.js', $result->getCompiledCode())
-		: Assert::fail('Failed to connect to closure compiler');
+	return new Compiler;
 }
 
 
@@ -79,7 +92,16 @@ function getFileContent(string $name): string
 }
 
 
-function getCompiler(): Compiler
+function matchJsFile(string $name, Compiler $compiler)
 {
-	return new Compiler;
+	$result = $compiler->compile();
+	$result
+		? Assert::matchFile('expected/' . $name .'.js', $result->getCompiledCode())
+		: throwConnectionError();
+}
+
+
+function throwConnectionError()
+{
+	Assert::fail('Failed to connect to closure compiler');
 }

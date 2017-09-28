@@ -117,7 +117,6 @@ class Compiler
 		$this->setOutputInfoType(self::OUTPUT_INFO_COMPILED_CODE);
 		$this->setOutputInfoType(self::OUTPUT_INFO_WARNINGS);
 		$this->setOutputInfoType(self::OUTPUT_INFO_ERRORS);
-		$this->setOutputInfoType(self::OUTPUT_INFO_STATISTICS);
 	}
 
 
@@ -151,6 +150,27 @@ class Compiler
 	}
 
 
+	public function enableClosureLibrary(): Compiler
+	{
+		$this->addHttpQueryParameter('use_closure_library', TRUE);
+		return $this;
+	}
+
+
+	public function enableStatistics(): Compiler
+	{
+		$this->setOutputInfoType(self::OUTPUT_INFO_STATISTICS);
+		return $this;
+	}
+
+
+	public function excludeDefaultExterns(): Compiler
+	{
+		$this->addHttpQueryParameter('exclude_default_externs', TRUE);
+		return $this;
+	}
+
+
 	public function setCodeUrl($url): Compiler
 	{
 		$this->addHttpQueryParameter('code_url', $url);
@@ -165,13 +185,6 @@ class Compiler
 		}
 
 		$this->addHttpQueryParameter('compilation_level', $level);
-		return $this;
-	}
-
-
-	public function setExcludeDefaultExterns(): Compiler
-	{
-		$this->addHttpQueryParameter('exclude_default_externs', TRUE);
 		return $this;
 	}
 
@@ -233,13 +246,6 @@ class Compiler
 	public function setOutputFileName(string $name): Compiler
 	{
 		$this->addHttpQueryParameter('output_file_name', $name);
-		return $this;
-	}
-
-
-	public function setUseClosureLibrary(): Compiler
-	{
-		$this->addHttpQueryParameter('use_closure_library', TRUE);
 		return $this;
 	}
 

@@ -46,6 +46,7 @@ class Response
 		return $this->response->outputFilePath ?? '';
 	}
 
+
 	public function getResponse(): \stdClass
 	{
 		return $this->response;
@@ -58,9 +59,9 @@ class Response
 	}
 
 
-	public function getStatistics(): array
+	public function getStatistics(): \stdClass
 	{
-		return $this->response->statistics ?? [];
+		return $this->response->statistics;
 	}
 
 
