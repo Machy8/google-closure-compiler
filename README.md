@@ -97,7 +97,7 @@ Is parsed json from response of previous request.
 | getServerErrors         | array - server errors                             |
 | getStatistics           | stdClass - statistics                             |
 | getWarnings             | array - warnings                                  |
-| hasErrors               | bool - if code to compile contain errors          |
+| hasErrors               | bool - if code to compile contains errors         |
 | hasServerErrors         | bool - if response contains server errors         |
-| hasWarnings             | bool - if warnings about compiled code exists     |
+| hasWarnings             | bool - if code to compile contains warnings       |
 | isWithoutErrors         | bool - combination of hasServerErrors & hasErrors |
