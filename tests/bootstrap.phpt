@@ -129,7 +129,7 @@ Assert::exception(
 			->compile();
 	},
 	\GoogleClosureCompiler\SetupException::class,
-	'Unknown code language "abc".'
+	'Unknown language type "abc".'
 );
 
 
