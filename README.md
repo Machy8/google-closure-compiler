@@ -61,3 +61,43 @@ And in the config neon
 extensions:
     - GoogleClosureCompiler\Bridges\CompilerNette\GoogleClosureCompilerExtension
 ```
+
+## Usage
+Direct and main information can be found on [https://developers.google.com/closure/compiler/docs/api-ref](https://developers.google.com/closure/compiler/docs/api-ref).
+
+### Compiler
+Returns [GoogleClosureCompiler\Response](https://github.com/Machy8/google-closure-compiler/blob/master/src/Compiler/Response.php) if connection was successful otherwise returns NULL.
+
+|         Method        |        Parameters        |      Constants      |
+|:---------------------:|:------------------------:|:-------------------:|
+| compile               |                          |                     |
+| enableClosureCompiler |                          |                     |
+| enableStatistics      |                          |                     |
+| excludeDefaultExterns |                          |                     |
+| setCodeUrl            | string | string [] $url  |                     |
+| setCompilationLevel   | string $level            | COMPILATION_LEVEL_* |
+| setExternsUrl         | string | string[] $value |                     |
+| setFormattingType     | string $type             | FORMATTING_*        |
+| setJsCode             | string $code             |                     |
+| setJsExterns          | string $jsCode           |                     |
+| setLanguage           | string $language         | LANGUAGE_*          |
+| setLanguageOut        | string $language         | LANGUAGE_OUT_*      |
+| setOutputFileName     | string $name             |                     |
+| setWarningLevel       | string $level            | WARNING_LEVEL_*     |
+
+### Response
+Is parsed json from previous request
+
+|          Method         |                      Returns                      |
+|:-----------------------:|:-------------------------------------------------:|
+| getCompiledCode         | string - compiled code                            |
+| getErrors               | array - errors                                    |
+| getOutputFilePath       | string - url path to file                         |
+| getResponse             | stdClass - whole response                         |
+| getServerErrors         | array - server errors                             |
+| getStatistics           | stdClass - statistics                             |
+| getWarnings             | array - warnings                                  |
+| hasErrors               | bool - if code to compile contain errors          |
+| hasServerErrors         | bool - if response contains server errors         |
+| hasWarnings             | bool - if warnings about compiled code exists     |
+| responseIsWithoutErrors | bool - combination of hasServerErrors & hasErrors |
