@@ -11,7 +11,7 @@
 
 declare(strict_types = 1);
 
-namespace GoogleClosureCompiler\Bridges\CompilerNette;
+namespace GoogleClosureCompiler\Bridges\Nette;
 
 use Nette\DI\CompilerExtension;
 
