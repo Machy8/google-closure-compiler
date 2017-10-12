@@ -59,7 +59,7 @@ public function renderDefault()
 And in the config neon
 ```
 extensions:
-    - GoogleClosureCompiler\Bridges\CompilerNette\GoogleClosureCompilerExtension
+    - GoogleClosureCompiler\Bridges\Nette\GoogleClosureCompilerExtension
 ```
 
 ## Usage
