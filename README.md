@@ -21,13 +21,13 @@
 
 ```php
 $compiler = new GoogleClosureCompiler\Compiler;
-$compiled = $compiler->setJsCode($code)->compile();
+$response = $compiler->setJsCode($code)->compile();
 
-if ($compiled) {
-    echo $compiled->getCompiledCode();
+if ($response && $response->isWithoutErrors()) {
+    echo $response->getCompiledCode();
 
 } else {
-    echo "Error";
+    echo $code;
 }
 
 ```
@@ -52,7 +52,13 @@ public function __construct(Compiler $compiler)
 public function renderDefault() 
 {
     $code = file_get_contents('/path/to/script.js');
-    $this->template->jsCode = $this->compiler->setJsCode($code)->compile();
+    $response = $this->compiler->setJsCode($code)->compile();
+    
+    if ($response && $response->isWithoutErrors()) {
+        $code = $response->getCompiledCode();
+    }
+    
+    $this->template->jsCode = $code;
 }
 ```
 
