@@ -104,6 +104,9 @@ class Compiler
 			self::WARNING_LEVEL_VERBOSE
 		];
 
+
+	private $defaultStreamContextCreateTimeout = 10; // seconds
+
 	/**
 	 * @var array
 	 */
@@ -135,9 +138,10 @@ class Compiler
 		}
 
 		$context = stream_context_create(['http' => [
-			'method' => 'POST',
-			'header' => "Content-type: application/x-www-form-urlencoded",
 			'content' => $this->buildHttpQuery(),
+			'header' => "Content-type: application/x-www-form-urlencoded",
+			'method' => 'POST',
+			'timeout' => $this->defaultStreamContextCreateTimeout
 		]]);
 
 		$response = file_get_contents(self::CLOSURE_COMPILER_URL, FALSE, $context);
@@ -185,6 +189,13 @@ class Compiler
 		}
 
 		$this->addHttpQueryParameter('compilation_level', $level);
+		return $this;
+	}
+
+
+	public function setDefaultStreamContextCreateTimeout(int $time): Compiler
+	{
+		$this->defaultStreamContextCreateTimeout = $time;
 		return $this;
 	}
 
