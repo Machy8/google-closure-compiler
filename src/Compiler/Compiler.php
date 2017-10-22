@@ -156,7 +156,7 @@ class Compiler
 
 	public function enableClosureLibrary(): Compiler
 	{
-		$this->addHttpQueryParameter('use_closure_library', TRUE);
+		$this->addHttpQueryParameter('use_closure_library', 'true');
 		return $this;
 	}
 
@@ -170,7 +170,7 @@ class Compiler
 
 	public function excludeDefaultExterns(): Compiler
 	{
-		$this->addHttpQueryParameter('exclude_default_externs', TRUE);
+		$this->addHttpQueryParameter('exclude_default_externs', 'true');
 		return $this;
 	}
 
@@ -273,7 +273,7 @@ class Compiler
 
 
 	/**
-	 * @param string|array|bool $value
+	 * @param string|string[] $value
 	 */
 	private function addHttpQueryParameter(string $key, $value)
 	{
