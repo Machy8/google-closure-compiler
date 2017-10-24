@@ -69,7 +69,6 @@ class Compiler
 		];
 
 	/**
-	 * TODO support other output format types?
 	 * @internal
 	 */
 	 const
@@ -104,8 +103,10 @@ class Compiler
 			self::WARNING_LEVEL_VERBOSE
 		];
 
-
-	private $defaultStreamContextCreateTimeout = 10; // seconds
+	/**
+	 * @var int
+	 */
+	private $defaultStreamContextCreateTimeout = 15; // seconds
 
 	/**
 	 * @var array
