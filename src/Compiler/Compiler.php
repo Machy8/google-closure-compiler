@@ -106,7 +106,7 @@ class Compiler
 	/**
 	 * @var int
 	 */
-	private $defaultStreamContextCreateTimeout = 15; // seconds
+	private $streamContextCreateTimeout = 15; // seconds
 
 	/**
 	 * @var array
@@ -142,7 +142,7 @@ class Compiler
 			'content' => $this->buildHttpQuery(),
 			'header' => "Content-type: application/x-www-form-urlencoded",
 			'method' => 'POST',
-			'timeout' => $this->defaultStreamContextCreateTimeout
+			'timeout' => $this->streamContextCreateTimeout
 		]]);
 
 		$response = file_get_contents(self::CLOSURE_COMPILER_URL, FALSE, $context);
@@ -194,9 +194,9 @@ class Compiler
 	}
 
 
-	public function setDefaultStreamContextCreateTimeout(int $time): Compiler
+	public function setConnectionTimeout(int $time): Compiler
 	{
-		$this->defaultStreamContextCreateTimeout = $time;
+		$this->streamContextCreateTimeout = $time;
 		return $this;
 	}
 
