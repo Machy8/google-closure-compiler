@@ -88,6 +88,9 @@ $response
 	: throwConnectionError();
 
 
+Assert::null(getCompiler()->setJsCode("alert('Hello world!');")->setConnectionTimeout(0)->compile());
+
+
 Assert::exception(
 	function () {
 		getCompiler()->compile();

@@ -145,7 +145,7 @@ class Compiler
 			'timeout' => $this->streamContextCreateTimeout
 		]]);
 
-		$response = file_get_contents(self::CLOSURE_COMPILER_URL, FALSE, $context);
+		$response = @file_get_contents(self::CLOSURE_COMPILER_URL, FALSE, $context);
 
 		if ($response === FALSE) {
 			return NULL;
