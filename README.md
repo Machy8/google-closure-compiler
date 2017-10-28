@@ -83,7 +83,7 @@ setDefaultStreamContextCreateTimeout
 | excludeDefaultExterns                 |                          |                     |
 | setCodeUrl                            | string \| string [] $url |                     |
 | setCompilationLevel                   | string $level            | COMPILATION_LEVEL_* |
-| setConnectionTimeout                  | int $level               |                     |
+| setConnectionTimeout                  | int $time                |                     |
 | setExternsUrl                         | string \| string[] $value|                     |
 | setFormattingType                     | string $type             | FORMATTING_*        |
 | setJsCode                             | string $code             |                     |
